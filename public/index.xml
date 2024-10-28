@@ -2,16 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ExampleSite</title>
-    <link>http://localhost:54362/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on ExampleSite</description>
     <image>
       <title>ExampleSite</title>
-      <url>http://localhost:54362/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:54362/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.136.2</generator>
     <language>en</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:54362/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Oct 2024 15:52:04 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Examples of Estimators</title>
+      <link>http://localhost:1313/posts/examplesofestimate/main/</link>
+      <pubDate>Tue, 22 Oct 2024 15:52:04 +0800</pubDate>
+      <guid>http://localhost:1313/posts/examplesofestimate/main/</guid>
+      <description>&lt;h2 id=&#34;introduction-of-estimators-in-ml&#34;&gt;Introduction of estimators in ML&lt;/h2&gt;
+&lt;p&gt;Random variables can be used in various scenarios in ML algorithms. Variational Auto-Encoder is one good example where one is required to sample a random variable $z \sim \mathcal{N}(0, 1)$ and reparameterize its mean $\mu$ and  deviation $\sigma$ to learn a desired Gaussian distribution $&amp;mdash;$ the prior distribution of the latent vector. Other scenarios like Diffusion models and Reinforcement Learning also involve estimation on certain function of a random variable or random variables.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
