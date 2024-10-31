@@ -19,7 +19,7 @@
       <pubDate>Tue, 22 Oct 2024 15:52:04 +0800</pubDate>
       <guid>http://localhost:1313/posts/examplesofestimate/main/</guid>
       <description>&lt;h2 id=&#34;introduction-of-estimators-in-ml&#34;&gt;Introduction of estimators in ML&lt;/h2&gt;
-&lt;p&gt;Random variables can be used in various scenarios in ML algorithms. Variational Auto-Encoder is one good example where one is required to sample a random variable $z \sim \mathcal{N}(0, 1)$ and reparameterize its mean $\mu$ and  deviation $\sigma$ to learn a desired Gaussian distribution $&amp;mdash;$ the prior distribution of the latent vector. Other scenarios like Diffusion models and Reinforcement Learning also involve estimation on certain function of a random variable or random variables.&lt;/p&gt;</description>
+&lt;p&gt;Estimations have played an important role in various scenarios in ML algorithms. Variational Auto-Encoder is one good example where one is required to sample a random variable $z \sim \mathcal{N}(0, 1)$ and reparameterize its mean $\mu$ and  deviation $\sigma$ to learn a desired Gaussian distribution $&amp;mdash;$ the prior distribution of the latent vector. Other scenarios like Diffusion models and Reinforcement Learning also involve estimation on certain function of a random variable or random variables.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

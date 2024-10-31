@@ -9,11 +9,27 @@ math: mathjax
 
 ## Introduction of estimators in ML
 
-Random variables can be used in various scenarios in ML algorithms. Variational Auto-Encoder is one good example where one is required to sample a random variable $z \sim \mathcal{N}(0, 1)$ and reparameterize its mean $\mu$ and  deviation $\sigma$ to learn a desired Gaussian distribution $---$ the prior distribution of the latent vector. Other scenarios like Diffusion models and Reinforcement Learning also involve estimation on certain function of a random variable or random variables.  
+Estimations have played an important role in various scenarios in ML algorithms. Variational Auto-Encoder is one good example where one is required to sample a random variable $z \sim \mathcal{N}(0, 1)$ and reparameterize its mean $\mu$ and  deviation $\sigma$ to learn a desired Gaussian distribution $---$ the prior distribution of the latent vector. Other scenarios like Diffusion models and Reinforcement Learning also involve estimation on certain function of a random variable or random variables.  
 
 Another scenario where estimators are especially useful is computing gradients for non-differential functions. As most if not all ML methods incorporate first-order optimizer (SGD, Adam, etc) to learn parameters, computing gradients for functions composing a network is involved as a must.  For those non-differential functions that are either inevitable ($max(\cdot)$,$Topk(\cdot)$) or beneficial since their discretized nature (VQ), estimators mange to approximate the derivatives of these functions. (To certain degree, the parameters in NNs are also random variables since the use the Stochastic Gradient Descent and its variants. Therefore approximating on the gradients of non-differential function on these parameters is also an estimation of random variables. ) 
 
 This post is to exemplify some classic and empirically useful estimators for used in ML.
+
+## Estimates in Random Process
+
+### Monte Carlo Method
+
+As what the ***the law of large numbers*** states, the average of independent samples of  a random variable converges to the expectation of which variable as the number of samples approaches infinity. In the realm of ML, Monte Carlo method is an very common practice, almost as a basis. For example, the very IID (independently identical distribution) prerequisite justify the generalization from train set to test set. In fact the dataset-side of the Scaling Law depicts the numerical relationship between generalization and dataset size. 
+
+ ![overfitting](../images/scaling law(overfitting).jpg)
+
+<center style="color:#C0C0C0;text-decoration:underline">Figure 1. The extent of overfitting depicted by the Scaling Law (https://arxiv.org/pdf/2001.08361) </center>
+
+If, Training on train set and generalizing to test set can be considered as a ***one-shot*** Monte Carlo, sampling *episodes* in Reinforcement Learning is a ***continuous*** version of Monte Carlo. To explain a little bit, Reinforcement Learning is about interacting with environments where you collect data as input (state) and collect data as label (reward) from what you output (action) to the given environment. **Markov Chain Monte Carlo** (MCMC) is then introduced to justify how we sample in RL. What 
+
+
+
+
 
 ## Gradient Estimator
 
@@ -41,7 +57,7 @@ Depending on what we know (or set) for $\mathbf{x}$, different estimators can be
 
 - When $\theta$ appear both in the distribution $p(\cdot; \theta)$ and function $\textbf{x}(\textbf{z};\theta)$, we have estimator of two terms:
 
-  $$\begin{equation}\begin{aligned} \frac{\partial}{\partial\theta} \mathbb{E}_{\textbf{z}\sim p(\cdot;\theta)}\left[f(\textbf{x}(\textbf{z};\theta))\right] = \mathbb{E}_{\textbf{z}\sim p(\cdot;\theta)} \left[\frac{\partial}{\partial\theta}f(\textbf{x}(\textbf{z};\theta)) + f(\textbf{x}(\textbf{z};\theta))\left(\frac{\partial}{\partial \theta} \log p(\textbf{z};\theta)\right)\right]\end{aligned}\end{equation}$$
+  $$\begin{equation}\begin{aligned}\frac{\partial}{\partial\theta} \mathbb{E}_{\textbf{z}\sim p(\cdot;\theta)}\left[f(\textbf{x}(\textbf{z};\theta))\right] = \mathbb{E} \left[\frac{\partial}{\partial\theta}f(\textbf{x}(\textbf{z};\theta)) + f(\textbf{x}(\textbf{z};\theta))\left(\frac{\partial}{\partial \theta} \log p(\textbf{z};\theta)\right)\right]\end{aligned}\end{equation}$$
 
   This formula is derived as follows:
 
